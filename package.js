@@ -15,7 +15,7 @@ Package.describe({
 });
 
 Package.onUse(function use(api) {
-  api.versionsFrom('1.3.2.4');
+  api.versionsFrom(['2.8.2', '3.0']);
   api.use(packages);
   api.mainModule('client.js', 'client', { lazy: true });
   api.mainModule('server.js', 'server');
