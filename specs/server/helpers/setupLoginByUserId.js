@@ -2,7 +2,7 @@ import { Accounts } from 'meteor/accounts-base';
 
 Meteor.methods({
   createTestUser() {
-    return Meteor.users.insert({});
+    return Meteor.users.insertAsync({});
   },
 });
 
