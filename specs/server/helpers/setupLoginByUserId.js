@@ -2,15 +2,15 @@ import { Accounts } from 'meteor/accounts-base';
 
 Meteor.methods({
   createTestUser() {
-    return Meteor.users.insert({});
+    return Meteor.users.insertAsync({});
   },
 });
 
-Accounts.registerLoginHandler('testLogin', (request) => {
+Accounts.registerLoginHandler('testLogin', async (request) => {
   if (!(typeof request.userId === 'string')) {
     return undefined;
   }
-  const user = Meteor.users.findOne(request.userId);
+  const user = await Meteor.users.findOneAsync(request.userId);
 
   if (!user) {
     return { error: new Meteor.Error('USER_NOT_FOUND') };
